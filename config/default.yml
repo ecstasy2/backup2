@@ -43,7 +43,7 @@ backup:
 
     additional_queries:
       - readings_data:
-        where: "timestamp > $30_DAYS_AGO ORDER BY timestamp ASC"
+        where: "timestamp > $Y_2_DAYS_AGO ORDER BY timestamp ASC"
         table: readings
 
 restore:

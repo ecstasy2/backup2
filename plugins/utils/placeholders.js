@@ -14,17 +14,17 @@ function addTimeVars(variables) {
   variables['A_YEAR_AGO'] = NOW - A_DAY * 365;
 
   for(var days = 2; days < 365; days++){
-    variables[days + '_DAYS_AGO'] = NOW - A_DAY * days;
+    variables['Y_' + days + '_DAYS_AGO'] = NOW - A_DAY * days;
   }
 
   variables['ONE_HOUR_AGO'] = NOW - 3600;
   for(var hours = 2; hours <= 24; hours++){
-    variables[hours + '_HOURS_AGO'] = NOW - 3600 * hours;
+    variables['Y_' + hours + '_HOURS_AGO'] = NOW - 3600 * hours;
   }
 
   variables['WEEK_AGO'] = NOW - A_WEEK;
   for(var weeks = 2; weeks <= 52; weeks++){
-    variables[weeks + '_WEEKS_AGO'] = NOW - A_WEEK * weeks;
+    variables['Y_' + weeks + '_WEEKS_AGO'] = NOW - A_WEEK * weeks;
   }
 
 }
@@ -63,7 +63,7 @@ module.exports.replace = function replace(string, sqlSafe) {
     return '<%= ' + varName + '%>'
   });
 
-  console.log(templateStr)
+  console.log(templateStr, getVars(sqlSafe))
 
   var compiledTpl = _.template(templateStr);
 
