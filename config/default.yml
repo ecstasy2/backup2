@@ -1,0 +1,50 @@
+
+log_level: INFO
+
+access_key_id: ""
+access_key_secret: ""
+
+notify:
+  sns:
+    enabled: 'true'
+    topic_arn: ~
+    region: "us-west-2"
+  slack:
+    enabled: true
+    channel: "#devops"
+    username: "Backup/Restore"
+    webhook_url: ~
+    on_success: true
+    on_warning: true
+    on_failure: true
+backup:
+  s3:
+    enabled: true
+    bucket: "edyn-pepper-backup"
+    region: "us-west-2"
+    latest-tag: "latest"
+  redis:
+    enabled: false
+    redis_cli: "redis-cli"
+    host: ~
+    port: 6379
+    password: ~
+
+  postgres:
+    no_schema_dump: false
+    enabled: false
+    schema: ~
+    username: ~
+    password: ~
+    host: localhost
+    port: 5432
+    skip_tables_data:
+      - readings
+
+    additional_queries:
+      - readings_data:
+        where: "timestamp > $ONE_HOUR_AGO ORDER BY timestamp ASC"
+        table: readings
+
+restore:
+  disabled: true

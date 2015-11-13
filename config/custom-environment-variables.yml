@@ -1,0 +1,41 @@
+
+log_level: LOG_LEVEL
+
+access_key_id: AWS_S3_ACCESS_KEY_ID
+access_key_secret: AWS_S3_SECRET_KEY
+
+notify:
+  on_success: NOTIFY_ON_SUCCESS
+  on_warning: NOTIFY_ON_WARNING
+  on_failure: NOTIFY_ON_FAILURE
+  sns:
+    enabled: SNS_NOTIFY_ENABLED
+    topic_arn: SNS_NOTIFY_TOPIC
+  slack:
+    enabled: SLACK_ENABLED
+    channel: SLACK_CHANNEL
+    username: SLACK_USERNAME
+    webhook_url: SLACK_WEBHOOK_URL
+backup:
+  s3:
+    bucket: AWS_S3_BUCKET
+    enabled: AWS_S3_ENABLED
+    regios: AWS_S3_REGION
+
+  redis:
+    enabled: REDIS_BACKUP_ENABLED
+    redis-cli: REDIS_CLI_CMD
+    host: REDIS_HOST
+    port: REDIS_PORT
+    password: REDIS_PASSWORD
+  postgres:
+    no_schema_dump: PG_NO_SCHEMA_DUMP
+    enabled: PG_BACKUP_ENABLED
+    schema: "PG_SCHEMA"
+    username: "PG_USERNAME"
+    password: "PG_PASSWORD"
+    host: "PG_HOST"
+    port: "PG_PORT"
+
+restore:
+  disabled: RESTORE_DISABLED
