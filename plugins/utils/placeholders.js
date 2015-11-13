@@ -63,8 +63,6 @@ module.exports.replace = function replace(string, sqlSafe) {
     return '<%= ' + varName + '%>'
   });
 
-  console.log(templateStr, getVars(sqlSafe))
-
   var compiledTpl = _.template(templateStr);
 
   return compiledTpl(getVars(sqlSafe))
