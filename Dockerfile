@@ -3,6 +3,8 @@ FROM node:0.12.6
 
 MAINTAINER Mamadou Bobo Diallo <bobo@edyn.com>
 
+RUN apt-get update && apt-get install -y postgresql-client redis-tools
+
 # Define working directory.
 WORKDIR /www/app
 
