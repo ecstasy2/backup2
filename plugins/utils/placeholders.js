@@ -10,7 +10,7 @@ function addTimeVars(variables) {
 
   variables['NOW'] = NOW;
   variables['ONE_DAY_AGO'] = NOW - A_DAY;
-  variables['MONTH_DAY_AGO'] = NOW - A_DAY * 30;
+  variables['MONTH_AGO'] = NOW - A_DAY * 30;
   variables['A_YEAR_AGO'] = NOW - A_DAY * 365;
 
   for(var days = 2; days < 365; days++){
